@@ -4,15 +4,15 @@ const initialState:any = {
     'idk': 'idk',
 }
 
-export const mhSlice = createSlice({
-    name: "myHusband",
+export const smSlice = createSlice({
+    name: "selfMaintaining",
     initialState,
     reducers: {
-        setMH: (state, action:any) => {
+        setSM: (state, action:any) => {
             state = action.payload;
         }
     }
 })
 
-export const { setMH } = mhSlice.actions;
-export default mhSlice.reducer;
+export const { setSM } = smSlice.actions;
+export default smSlice.reducer;

@@ -19,3 +19,9 @@ export type DiaryEntryQuery = {
     query: string,
     result: Array<DiaryEntry>
 }
+
+export type InitialSliceState = {
+    diaryEntries: Array<DiaryEntry>,
+    isLoading: boolean,
+    error: string | null,
+}

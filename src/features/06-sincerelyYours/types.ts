@@ -1,4 +1,4 @@
-import {BlockContent, Slug} from '../shared/basicSanityTypes'
+import {BlockContent, Query, Slug, CoreResponse} from '../shared/basicSanityTypes'
 
 export type syVideo = {
     slug: Slug,
@@ -24,20 +24,14 @@ export type syImage = {
     _type: "assetBlock"
 }
 
-export type SincerelyYours = {
+export interface SincerelyYours extends CoreResponse {
     assets: Array<syImage | syVideo>;
     chunkOfText: Array<BlockContent>;
     slug: Slug;
     title: string;
-    _createdAt: string;
-    _id: string;
-    _rev: string;
     _type: "sincerelyYours",
-    _updatedAt: string,
 }
 
-export type SincerelyYoursQuery = {
-    ms: number,
-    query: "*[_type == \"sincerelyYours\"]",
+export interface SincerelyYoursQuery extends Query {
     result: Array<SincerelyYours>
 }

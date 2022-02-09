@@ -1,6 +1,11 @@
-import {Slug} from '../shared/basicSanityTypes'
+import { Query, Slug, CoreResponse } from '../shared/basicSanityTypes'
 
-export type SelfMaintaining = {
+
+export interface SelfMaintainingQuery extends Query {
+    result: Array<SelfMaintaining>
+}
+
+export interface SelfMaintaining extends CoreResponse {
     slug: Slug;
     title: string;
     video: {
@@ -8,15 +13,5 @@ export type SelfMaintaining = {
         _key: string,
         _type: string,
     }
-    _createdAt: string;
-    _id: string;
-    _rev: string;
     _type: "selfMaintaining",
-    _updatedAt: string,
-}
-
-export type SelfMaintainingQuery = {
-    ms: number,
-    query: "*[_type == \"selfMaintaining\"]",
-    result: Array<SelfMaintaining>
 }

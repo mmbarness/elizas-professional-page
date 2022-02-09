@@ -1,18 +1,11 @@
-export type MyFavoriteMonumentQuery = {
-    ms: number,
-    query: string,
+import { Query, CoreResponse, Slug } from "../shared/basicSanityTypes"
+
+export interface MyFavoriteMonumentQuery extends Query {
     result: Array<MyFavoriteMonument>
 }
 
-export type MyFavoriteMonument = {
-    slug: {
-        _type: 'slug',
-        current: string
-    },
+export interface MyFavoriteMonument extends CoreResponse {
+    slug: Slug,
     title: string,
-    _createdAt: string,
-    _id: string,
-    _rev: string,
     _type: "myFavoriteMonument",
-    _updatedAt: string,
 }

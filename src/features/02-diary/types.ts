@@ -1,22 +1,17 @@
 import { BlockContent } from "../shared/basicSanityTypes"
+import { Query, CoreResponse } from "../shared/basicSanityTypes"
 
-export type DiaryEntry = {
-    _createdAt: string,
-    _id: string,
-    _rev: string,
-    _type: string,
-    _updatedAt: string,
+export interface DiaryEntry extends CoreResponse {
     title: string,
     slug?: {
         _type: string,
         current: string,
     },
     text: Array<BlockContent>
+    _type: "diaryEntry"
 }
 
-export type DiaryEntryQuery = {
-    ms: number, 
-    query: string,
+export interface DiaryEntryQuery extends Query {
     result: Array<DiaryEntry>
 }
 

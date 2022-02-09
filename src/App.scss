@@ -1,0 +1,19 @@
+@use './features/01-home/home' as *;
+@use './features/shared/text/text' as *;
+
+.App {
+  @include homePage;
+}
+
+a:link {
+  text-decoration: none;
+  color: rgba(0, 2, 109, 0.89);
+}
+
+a:visited {
+  color: rgba(0, 2, 109, 0.89);
+}
+
+#root{
+  font-family: 'Tekst D';
+}

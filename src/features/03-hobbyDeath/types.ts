@@ -1,19 +1,15 @@
-export type HobbyDeath = {
+import { Query, CoreResponse } from "../shared/basicSanityTypes"
+
+export interface HobbyDeath extends CoreResponse {
     hobbyDeathDescription: Array<string>,
     hobbyDeathVideo: string,
     slug: {
         _type: 'slug', current: string
     },
     title: string,
-    _createdAt: string,
-    _id: string,
-    _rev: string,
     _type: "hobbyDeath",
-    _updatedAt: string,
 }
 
-export type HobbyDeathQuery = {
-    ms: number,
-    query: string,
+export interface HobbyDeathQuery extends Query {
     result: Array<HobbyDeath>
 }

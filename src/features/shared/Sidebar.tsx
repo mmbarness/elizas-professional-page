@@ -57,6 +57,7 @@ export const Sidebar = () => {
     return (
         <div id="sidebar-container">
             <div id="sidebar-links">
+                Eliza Lu Doyle
                 {links.map((link, index) => <p key={index}>{link}</p>)}
             </div>
         </div>

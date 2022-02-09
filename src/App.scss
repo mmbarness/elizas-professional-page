@@ -1,6 +1,7 @@
 @use './features/01-home/home' as *;
 @use './features/shared/text/text' as *;
 @use './features/shared/pages.scss' as *;
+
 .App {
   @include pages; 
   display: grid;
@@ -17,16 +18,12 @@
   }
 }
 
-
 a {
   text-decoration: none;
-  color: rgba(0, 2, 109, 0.89)
-}
-
-text{
-  color: rgba(0, 2, 109, 0.89);
-}
+  color: inherit; 
+} 
 
 #root{
+  color: rgba(0, 2, 109, 0.89);
   font-family: 'Tekst D';
 }

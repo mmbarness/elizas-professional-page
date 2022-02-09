@@ -10,11 +10,12 @@ export const Home = () => {
     const { isLoading, error, data } = useGetHomePageQuery()
 
     const imageURL = data ? imageUrlFor(data?.homePageImage).width(300).url() : ""
+    const homepageImage = <img src={imageURL} alt="homepage-image" id="homepage-image"/>
 
     return (
         <div id="homepage-container">
             <div className="img-spacer"></div>
-            <img src={imageURL} alt="homepage-image" id="homepage-image"/>
+            {imageURL ? homepageImage : null}
             <div className="img-spacer"></div>
         </div>
     )

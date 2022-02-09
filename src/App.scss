@@ -1,9 +1,9 @@
 @use './features/01-home/home' as *;
 @use './features/shared/text/text' as *;
-@use './features/shared/pages.scss' as *;
+@use './features/shared/pages' as *;
 
 .App {
-  @include pages; 
+  @include Pages; 
   display: grid;
   grid-template-columns: 20% 90%;
 }

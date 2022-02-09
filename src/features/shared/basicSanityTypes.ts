@@ -15,6 +15,7 @@ export type SanityImage = {
         _ref: string;
         _type: string;
     }
+    alt?: string, 
 }
 
 export interface CoreResponse  {

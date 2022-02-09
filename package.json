@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@portabletext/react": "^1.0.2",
     "@reduxjs/toolkit": "^1.7.1",
+    "@sanity/asset-utils": "^1.2.3",
     "@sanity/client": "^3.0.3",
     "@sanity/image-url": "^1.0.1",
     "@testing-library/jest-dom": "^5.16.1",
@@ -13,6 +15,7 @@
     "@types/node": "^16.11.15",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
+    "dayjs": "^1.10.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",

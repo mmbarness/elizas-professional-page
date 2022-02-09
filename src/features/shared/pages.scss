@@ -1,7 +1,9 @@
 @use '../01-home/home' as *;
+@use '../02-diary/diary' as *;
 
-@mixin pages {
+@mixin Pages {
     @include homePage;
+    @include Diary;
     #pages {
         height: 90vh;
     }

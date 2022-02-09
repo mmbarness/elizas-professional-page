@@ -5,15 +5,28 @@
   @include homePage;
 }
 
-a:link {
+a {
   text-decoration: none;
-  color: rgba(0, 2, 109, 0.89);
+  color: rgba(0, 2, 109, 0.89)
 }
 
-a:visited {
+// a:link {
+//   text-decoration: none;
+//   color:  rgba(0, 2, 109, 0.89);
+// }
+
+// a:visited {
+//   color: inherit;
+// }
+
+text{
   color: rgba(0, 2, 109, 0.89);
 }
 
 #root{
   font-family: 'Tekst D';
+}
+
+.active-link{
+  color: rgba(0, 184, 31, 0.89);
 }

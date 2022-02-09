@@ -5,6 +5,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
     "@sanity/client": "^3.0.3",
+    "@sanity/image-url": "^1.0.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",

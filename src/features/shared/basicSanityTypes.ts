@@ -9,6 +9,14 @@ export type BlockContent = {
     style?: string
 }
 
+export type SanityImage = {
+    _type: "image";
+    asset: {
+        _ref: string;
+        _type: string;
+    }
+}
+
 export interface CoreResponse  {
     _createdAt: string,
     _id: string,

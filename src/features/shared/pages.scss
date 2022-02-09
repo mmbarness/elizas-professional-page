@@ -1,0 +1,8 @@
+@use '../01-home/home' as *;
+
+@mixin pages {
+    @include homePage;
+    #pages {
+        height: 90vh;
+    }
+}

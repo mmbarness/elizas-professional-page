@@ -1,79 +1,21 @@
-import {  useGetHomePageQuery, useGetImageUrlQuery } from "../shared/sanityAPI"
+import {  imageUrlFor, useGetHomePageQuery, useGetImageUrlQuery } from "../shared/sanityAPI"
 import {Link} from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
 import { useEffect } from "react";
 
-type homepageLinks = {
-    "/": string,
-    "/diary": string,
-    "/hobby-death": string,
-    "/my-favorite-monument": string,
-    "/self-maintaining": string,
-    "/sincerely-yours": string,
-    "/music-videos": string,
-    "/my-husband": string,
-}
-
 export const Home = () => {
-
+    //https://cdn.sanity.io/images/lnkrniw1/production/7fd37d7c1ec0fd60544a111e5cc6b22487c2c355-639x579.png
     const location = useLocation()
 
-    const linksObj: any = {
-        "/":  "homepage-link",
-        "/diary":"diary-link",
-        "/hobby-death": "hd-link",
-        "/my-favorite-monument": "mfm-link",
-        "/self-maintaining": "sm-link",
-        "/sincerely-yours": "sy-link",
-        "/music-videos": "mv-link",
-        "/my-husband": "mh-link",
-    }
-
-    const links = [
-        <Link to= '/' id="homepage-link" className = "homepage-links">home</Link>,
-        <Link to= '/diary' id="diary-link" className = "homepage-links">diary / archive</Link>,
-        <Link to= '/hobby-death' id="hd-link" className = "homepage-links">Hobby Death</Link>,
-        <Link to= '/my-favorite-monument' id="mfm-link" className = "homepage-links">My Favorite Monument</Link>,
-        <Link to= '/self-maintaining' id="sm-link" className = "homepage-links">Self Maintaining</Link>,
-        <Link to= '/sincerely-yours' id="sy-link" className = "homepage-links">Sincerely Yours</Link>,
-        <Link to= '/music-videos' id="mv-link" className = "homepage-links">Music Videos</Link>,
-        <Link to= '/my-husband' id="mh-link" className = "homepage-links">My Husband</Link>,
-    ]
-
-    useEffect(() => {
-        const path = location.pathname
-        const link:string = linksObj[path]
-        const activeLink = document.getElementById(`${link}`)
-        const allLinks = Array.from(document.getElementsByClassName("homepage-links"))
-        if (activeLink) {
-            allLinks.forEach(link => {
-                link.id === activeLink.id ? link.classList.add("active-link") : link.classList.remove("active-link")
-            })
-        }
-
-    },[location])
-
     const { isLoading, error, data } = useGetHomePageQuery()
-    const imgQuery = data?.homePageImage.asset._ref
-    console.log(location)
 
-    const { 
-        isLoading: imageLoading, 
-        error: imageError, 
-        data: imageUrl
-    } = useGetImageUrlQuery(
-        imgQuery,
-        {
-            skip: !imgQuery,
-        }
-    )
+    const imageURL = data ? imageUrlFor(data?.homePageImage).width(300).url() : ""
 
     return (
-        <div>
-            <div id="homepage-links">
-                {links.map((link, index) => <p key={index}>{link}</p>)}
-            </div>
-
+        <div id="homepage-container">
+            <div className="img-spacer"></div>
+            <img src={imageURL} alt="homepage-image" id="homepage-image"/>
+            <div className="img-spacer"></div>
         </div>
     )
 }

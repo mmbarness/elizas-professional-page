@@ -1,13 +1,8 @@
-import { Link, Query, CoreResponse, BlockContent } from '../shared/basicSanityTypes'
+import { Link, Query, CoreResponse, BlockContent, SanityImage } from '../shared/basicSanityTypes'
 
 export interface HomePage extends CoreResponse {
     homePageText: BlockContent[]
-    homePageImage: {
-        asset: {
-            _ref: string
-            _type: "reference"
-        }
-    }
+    homePageImage: SanityImage
     socials: Link[]
 }
 

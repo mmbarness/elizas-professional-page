@@ -1,23 +1,27 @@
 @use './features/01-home/home' as *;
 @use './features/shared/text/text' as *;
-
+@use './features/shared/pages.scss' as *;
 .App {
-  @include homePage;
+  @include pages; 
+  display: grid;
+  grid-template-columns: 20% 90%;
 }
+
+#sidebar-container{
+  
+  #sidebar-links{
+
+    .active-link{
+      color: rgba(0, 184, 31, 0.89);
+    }
+  }
+}
+
 
 a {
   text-decoration: none;
   color: rgba(0, 2, 109, 0.89)
 }
-
-// a:link {
-//   text-decoration: none;
-//   color:  rgba(0, 2, 109, 0.89);
-// }
-
-// a:visited {
-//   color: inherit;
-// }
 
 text{
   color: rgba(0, 2, 109, 0.89);
@@ -25,8 +29,4 @@ text{
 
 #root{
   font-family: 'Tekst D';
-}
-
-.active-link{
-  color: rgba(0, 184, 31, 0.89);
 }

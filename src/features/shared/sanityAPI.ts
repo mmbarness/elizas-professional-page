@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import imageUrlBuilder from '@sanity/image-url';
 import { HomePage, HomePageQuery } from '../01-home/types';
 import { DiaryEntry, DiaryEntryQuery } from '../02-diary/types';
 import { HobbyDeath, HobbyDeathQuery } from '../03-hobbyDeath/types';
@@ -7,8 +8,21 @@ import { SelfMaintaining, SelfMaintainingQuery } from '../05-selfMaintaining/typ
 import { SincerelyYours, SincerelyYoursQuery } from '../06-sincerelyYours/types';
 import { MusicVideoQuery, MusicVideo } from '../07-musicVideos/types';
 import { MyHusband, MyHusbandQuery } from '../08-myHusband/types';
-
+import { SanityImage } from './basicSanityTypes';
+const sanityClient = require('@sanity/client')
 const baseURL = 'https://lnkrniw1.api.sanity.io/v2022-02-01/data/query/production';
+
+export const baseSanityClient = sanityClient({
+    projectId: 'lnkrniw1',
+    dataset: 'production',
+    useCdn: true,
+    apiVersion: '2022-02-01',
+    token: '',
+})
+
+const imageBuilder = imageUrlBuilder(baseSanityClient);
+
+export const imageUrlFor = (source: SanityImage) => imageBuilder.image(source);
 
 export const sanityApi = createApi({
     reducerPath: 'sanity',
@@ -17,7 +31,7 @@ export const sanityApi = createApi({
     }),
     endpoints: (builder) => ({
         getImageUrl: builder.query<string, string | undefined>({
-            query: (ref) => `*[_ref == ${ref}]{
+            query: (ref) => `?query=*[_type == "image"]{
                 "imageUrl": image.asset->url
             }`
         }),

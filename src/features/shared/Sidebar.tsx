@@ -35,8 +35,8 @@ export const Sidebar = () => {
         <Link to= '/hobby-death' id="hd-link" className = "homepage-links">Hobby Death</Link>,
         <Link to= '/my-favorite-monument' id="mfm-link" className = "homepage-links">My Favorite Monument</Link>,
         <Link to= '/self-maintaining' id="sm-link" className = "homepage-links">Self Maintaining</Link>,
-        <Link to= '/sincerely-yours' id="sy-link" className = "homepage-links">Sincerely Yours</Link>,
-        <Link to= '/music-videos' id="mv-link" className = "homepage-links">Music Videos</Link>,
+        <Link to= '/sincerely-yours' id="sy-link" className = "homepage-links">Sincerely, Yours</Link>,
+        <Link to= '/music-videos' id="mv-link" className = "homepage-links">music videos</Link>,
         <Link to= '/my-husband' id="mh-link" className = "homepage-links">My Husband</Link>,
     ]
 

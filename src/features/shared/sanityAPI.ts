@@ -64,7 +64,7 @@ export const sanityApi = createApi({
             transformResponse: (response: MusicVideoQuery) => response.result
         }),
         getMyHusband: builder.query<MyHusband[], void>({
-            query: () => `?query=*[_type == "myHusband"]`,
+            query: () => `?query=*[_type == "myHusband"]|order(orderRank)`,
             transformResponse: (response: MyHusbandQuery) => response.result
         })
     })

@@ -1,11 +1,13 @@
 @use '../01-home/home' as *;
 @use '../02-diary/diary' as *;
 @use '../07-musicVideos/musicVideos.scss' as *;
+@use '../08-myHusband/myHusband' as *;
 
 @mixin Pages {
     @include homePage;
     @include Diary;
     @include MusicVideos;
+    @include MyHusband;
     #pages {
         display: flex;
     }

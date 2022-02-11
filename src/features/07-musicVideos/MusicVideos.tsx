@@ -16,13 +16,8 @@ export const MusicVideos = () => {
                             url={video.link}
                             width="90%"
                             height= "100%"
-                            style={{
-                                // margin: ".5rem",
-                            }}
-                            light={true}
                             controls={true}
                             className={`${i % 2 === 0 ? "left music-video" : "right music-video"}`}
-                            // origin={window.location.origin}
                         />
                     </Suspense>
                 ))

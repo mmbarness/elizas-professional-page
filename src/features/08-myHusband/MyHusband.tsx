@@ -6,7 +6,6 @@ import { MyHusband as MyHusbandObjType } from "./types"
 export const MyHusband = () => {
 
     const { isLoading, error, data } = useGetMyHusbandQuery()
-    console.log(data)
 
     const renderLink = (linkObj: MyHusbandObjType) => {
         return (
@@ -23,6 +22,7 @@ export const MyHusband = () => {
                     url={videoObj.video}
                     width="90%"
                     height= "90%"
+                    light={true}
                     controls={true}
                     className="my-husband-video react-player"
                 />

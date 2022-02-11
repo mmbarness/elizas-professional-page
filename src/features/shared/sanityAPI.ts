@@ -30,15 +30,6 @@ export const sanityApi = createApi({
         baseUrl: baseURL,
     }),
     endpoints: (builder) => ({
-        getImageUrl: builder.query<string, string | undefined>({
-            query: (ref) => `?query=*[_type == "image"]{
-                "imageUrl": image.asset->url
-            }`
-        }),
-        getHomePage: builder.query<HomePage, void>({
-            query: () => `?query=*[_type == "homePage"]`,
-            transformResponse: (response: HomePageQuery) => response.result[2],
-        }),
         getDiaryEntries: builder.query<Array<DiaryEntry>, void>({
             query: () => `?query=*[_type == "diary"]`,
             transformResponse: (response: DiaryEntryQuery) => response.result
@@ -47,9 +38,29 @@ export const sanityApi = createApi({
             query: () => `?query=*[_type == "hobbyDeath"]`,
             transformResponse: (response: HobbyDeathQuery) => response.result[1]
         }),
+        getHomePage: builder.query<HomePage, void>({
+            query: () => `?query=*[_type == "homePage"]`,
+            transformResponse: (response: HomePageQuery) => response.result[2],
+        }),
+        getImageUrl: builder.query<string, string | undefined>({
+            query: (ref) => `?query=*[_type == "image"]{
+                "imageUrl": image.asset->url
+            }`
+        }),
         getMFM: builder.query<MyFavoriteMonument, void>({
             query: () => `?query=*[_type == "myFavoriteMonument"]`,
             transformResponse: (response: MyFavoriteMonumentQuery) => response.result[0]
+        }),
+        getMusicVideos: builder.query<MusicVideo[], void>({
+            query: () => `?query=*[_type == "musicVideo"]|order(orderRank)`,
+            transformResponse: (response: MusicVideoQuery) => response.result
+        }),
+        getMyHusband: builder.query<MyHusband[], void>({
+            query: () => `?query=*[_type == "myHusband"]|order(orderRank)`,
+            transformResponse: (response: MyHusbandQuery) => response.result
+        }),
+        getSlugs: builder.query<string[], void>({
+            query: () => `?query=*[_type== "slug"]`,
         }),
         getSelfMaintaining: builder.query<SelfMaintaining, void>({
             query: () => `?query=*[_type == "selfMaintaining"]`,
@@ -59,27 +70,20 @@ export const sanityApi = createApi({
             query: () => `?query=*[_type == "sincerelyYours"]`,
             transformResponse: (response: SincerelyYoursQuery) => response.result[0]
         }),
-        getMusicVideos: builder.query<MusicVideo[], void>({
-            query: () => `?query=*[_type == "musicVideo"]|order(orderRank)`,
-            transformResponse: (response: MusicVideoQuery) => response.result
-        }),
-        getMyHusband: builder.query<MyHusband[], void>({
-            query: () => `?query=*[_type == "myHusband"]|order(orderRank)`,
-            transformResponse: (response: MyHusbandQuery) => response.result
-        })
     })
 })
 
 export const {
-    useGetImageUrlQuery,
-    useGetHomePageQuery,
     useGetDiaryEntriesQuery,
+    useGetHomePageQuery,
     useGetHobbyDeathQuery,
+    useGetImageUrlQuery,
     useGetMFMQuery,
-    useGetSelfMaintainingQuery,
-    useGetSincerelyYoursQuery,
     useGetMusicVideosQuery,
     useGetMyHusbandQuery,
+    useGetSelfMaintainingQuery,
+    useGetSincerelyYoursQuery,
+    useGetSlugsQuery,
 } = sanityApi 
 
 

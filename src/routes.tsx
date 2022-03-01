@@ -7,8 +7,7 @@ import { SelfMaintaining } from './features/05-selfMaintaining/SelfMaintaining'
 import { SincerelyYours } from './features/06-sincerelyYours/SincerelyYours'
 import { MusicVideos } from './features/07-musicVideos/MusicVideos'
 import { MyHusband } from './features/08-myHusband/MyHusband'
-import { useGetSlugsQuery } from './features/shared/sanityAPI'
-
+import { CV } from './features/09-CV/CV'
 
 export const RoutesObj = () => useRoutes([
     {path: '/', element: <Home/>},
@@ -19,4 +18,5 @@ export const RoutesObj = () => useRoutes([
     {path: '/sincerely-yours', element: <SincerelyYours/>},
     {path: '/music-videos', element: <MusicVideos/>},
     {path: '/my-husband', element: <MyHusband/>},
+    {path: '/cv', element: <CV/>},
 ])

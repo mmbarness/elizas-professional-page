@@ -12,6 +12,7 @@ type homepageLinks = {
     "/sincerely-yours": string,
     "/music-videos": string,
     "/my-husband": string,
+    "/cv": string,
 }
 
 export const Sidebar = () => {
@@ -27,6 +28,7 @@ export const Sidebar = () => {
         "/sincerely-yours": "sy-link",
         "/music-videos": "mv-link",
         "/my-husband": "mh-link",
+        "/cv": "cv-link",
     }
 
     const links = [
@@ -46,7 +48,6 @@ export const Sidebar = () => {
         const activeLink = document.getElementById(`${link}`)
         const allLinks = Array.from(document.getElementsByClassName("homepage-links"))
         if (activeLink) {
-            console.log({activeLink})
             allLinks.forEach(link => {
                 link.id === activeLink.id ? link.classList.add("active-link") : link.classList.remove("active-link")
             })
@@ -58,7 +59,10 @@ export const Sidebar = () => {
         <div id="sidebar-container">
             <div id="sidebar-links">
                 Eliza Lu Doyle
-                {links.map((link, index) => <p key={index}>{link}</p>)}
+                {links.map((link, index) => <p className="sidebar-link-container" key={index}>{link}</p>)}
+                <p id="cv-link-container" className="sidebar-link-container">
+                    <Link to= '/cv' id="cv-link" className = "homepage-links">CV</Link>
+                </p>
             </div>
         </div>
     )

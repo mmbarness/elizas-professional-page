@@ -59,6 +59,12 @@ export const sanityApi = createApi({
             query: () => `?query=*[_type == "myHusband"]|order(orderRank)`,
             transformResponse: (response: MyHusbandQuery) => response.result
         }),
+        getResume: builder.query<{resumeURL: string}, void>({
+            query: () => `?query=*[_type == 'resume'] {
+                "resumeURL": asset->url
+              }`, 
+            transformResponse:(response: {'result': Array<{'resumeURL':string}>}) => response.result[0]
+        }),
         getSlugs: builder.query<string[], void>({
             query: () => `?query=*[_type== "slug"]`,
         }),
@@ -81,6 +87,7 @@ export const {
     useGetMFMQuery,
     useGetMusicVideosQuery,
     useGetMyHusbandQuery,
+    useGetResumeQuery,
     useGetSelfMaintainingQuery,
     useGetSincerelyYoursQuery,
     useGetSlugsQuery,

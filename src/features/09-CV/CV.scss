@@ -1,0 +1,10 @@
+@mixin CV {
+    #resume-container{
+        cursor: pointer;
+        display: flex;
+        flex-flow: column;
+        #resume-dl-link{
+            font-size:.75rem;
+        }
+    }
+}

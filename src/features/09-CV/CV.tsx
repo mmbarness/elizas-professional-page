@@ -16,7 +16,7 @@ export const CV = () => {
 
     pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-    const getWindowDimension = (whichSide: string) => ( whichSide === 'width' ? window.innerWidth : window.innerHeight)
+    const getWindowDimension = (whichSide: string) => ( whichSide === 'width' ? window.innerWidth-50 : window.innerHeight-50)
     
     const [windowDimensions, setWindowDimensions] = useState({'width': getWindowDimension('width'), 'height': getWindowDimension('height'), 'lesserValue': getWindowDimension('width')})
     
@@ -47,7 +47,7 @@ export const CV = () => {
             <Document file={data?.resumeURL} className="cv-pdf">
                 <Page pageNumber={pageNumber} width={windowDimensions.lesserValue} onClick={() => incrementPageOp()}/>
             </Document>
-            {/* <a id="resume-dl-link" href={downloadResource()} download="Eliza Doyle-Resume.pdf">download me</a> */}
+            <a id="resume-dl-link" href={data?.resumeURL} download="Eliza Doyle-Resume.pdf" target="_blank" rel="noopener noreferrer">download me</a>
         </div>  
         : <div>Loading...</div>
     ) 

@@ -5,7 +5,6 @@ import ReactPlayer from "react-player/lazy"
 export const MusicVideos = () => {
 
     const { isLoading, error, data } = useGetMusicVideosQuery()
-    console.log(data)
 
     const renderMusicVideos = useCallback(
         () => {

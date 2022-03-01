@@ -11,7 +11,6 @@ export const CV = () => {
     const { isLoading, error, data } = useGetResumeQuery()
 
     const [cvLink, setCvLink] = useState(data?.resumeURL);
-    console.log({cvLink, data})
 
     pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 

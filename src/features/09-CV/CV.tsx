@@ -3,8 +3,7 @@ import "regenerator-runtime/runtime";
 import { pdfjs, Document, Page } from "react-pdf";
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import { useGetResumeQuery } from "../shared/sanityAPI";
-import { match, __ } from "ts-pattern";
-// import { downloadResource } from "../../../utils/fetches";
+import rightArrow from '../../assets/right-arrow.svg';
 
 export const CV = () => {
 
@@ -45,9 +44,10 @@ export const CV = () => {
         !isLoading ? 
         <div id="resume-container">
             <Document file={data?.resumeURL} className="cv-pdf">
-                <Page pageNumber={pageNumber} width={windowDimensions.lesserValue} onClick={() => incrementPageOp()}/>
+                <Page pageNumber={pageNumber} width={windowDimensions.lesserValue}/>
             </Document>
-            <a id="resume-dl-link" href={data?.resumeURL} download="Eliza Doyle-Resume.pdf" target="_blank" rel="noopener noreferrer">download me</a>
+            <svg id="resume-pg-nav" onClick={() => incrementPageOp()} width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>
+            <a id="resume-dl-link" href={data?.resumeURL} download="Eliza Doyle-Resume.pdf" target="_blank" rel="noopener noreferrer">download</a>
         </div>  
         : <div>Loading...</div>
     ) 

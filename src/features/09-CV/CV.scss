@@ -1,10 +1,14 @@
 @mixin CV {
     #resume-container{
         cursor: pointer;
-        display: flex;
-        flex-flow: column;
+        display: grid;
+        grid-template-rows: 95% 5%;
         #resume-dl-link{
-            font-size:.75rem;
+            font-size:.8rem;
+            grid-row: 2;
+        }
+        #resume-dl-link{
+            grid-row:2;
         }
     }
 }

@@ -10,7 +10,9 @@ export const CV = () => {
 
     const { isLoading, error, data } = useGetResumeQuery()
 
-    const [cvLink, setCvLink] = useState(data?.resumeURL);
+    const [pageNumber, setPageNumber] = useState(1);
+
+    const incrementPageOp = () => pageNumber === 2 ? setPageNumber(1) : setPageNumber(2)
 
     pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -43,10 +45,10 @@ export const CV = () => {
         !isLoading ? 
         <div id="resume-container">
             <Document file={data?.resumeURL} className="cv-pdf">
-                <Page pageNumber={1} width={windowDimensions.lesserValue}/>
+                <Page pageNumber={pageNumber} width={windowDimensions.lesserValue} onClick={() => incrementPageOp()}/>
             </Document>
             {/* <a id="resume-dl-link" href={downloadResource()} download="Eliza Doyle-Resume.pdf">download me</a> */}
-        </div>   
+        </div>  
         : <div>Loading...</div>
     ) 
 }

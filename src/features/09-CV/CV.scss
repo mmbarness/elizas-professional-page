@@ -1,5 +1,6 @@
 @mixin CV {
     #resume-container{
+        height: 95vh;
         display: grid;
         align-items: center;
         grid-template-rows: 95% 5%;

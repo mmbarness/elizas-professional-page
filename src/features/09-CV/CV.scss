@@ -2,13 +2,23 @@
     #resume-container{
         cursor: pointer;
         display: grid;
+        align-items: center;
         grid-template-rows: 95% 5%;
-        #resume-dl-link{
-            font-size:.8rem;
-            grid-row: 2;
+        grid-template-columns: 50% 50%;
+        grid-template-areas:
+            "resume resume"
+            "bottom-left bottom-right";
+        .cv-pdf{
+            grid-area: resume;
+        }
+        #resume-pg-nav{
+            grid-area: bottom-right;
+            align-self: end;
+            justify-self: end;
         }
         #resume-dl-link{
-            grid-row:2;
+            font-size:.8rem;
+            grid-area: bottom-left;
         }
     }
 }

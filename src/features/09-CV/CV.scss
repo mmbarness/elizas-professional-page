@@ -1,6 +1,5 @@
 @mixin CV {
     #resume-container{
-        cursor: pointer;
         display: grid;
         align-items: center;
         grid-template-rows: 95% 5%;
@@ -15,6 +14,7 @@
             grid-area: bottom-right;
             align-self: end;
             justify-self: end;
+            cursor: pointer;
         }
         #resume-dl-link{
             font-size:.8rem;

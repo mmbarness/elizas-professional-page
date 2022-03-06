@@ -10,14 +10,16 @@
             "bottom-left bottom-right";
         .cv-pdf{
             grid-area: resume;
+            z-index:0
         }
         #resume-pg-nav{
+            z-index: 2;
             grid-area: bottom-right;
-            align-self: end;
             justify-self: end;
             cursor: pointer;
         }
         #resume-dl-link{
+            z-index:2;
             font-size:.8rem;
             grid-area: bottom-left;
         }

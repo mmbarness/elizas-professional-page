@@ -1,21 +1,25 @@
-import {  imageUrlFor, useGetHomePageQuery, useGetImageUrlQuery } from "../shared/sanityAPI"
-import {Link} from 'react-router-dom'
+import {  imageUrlFor, useGetHomePageQuery } from "../shared/sanityAPI"
 import { useLocation } from 'react-router-dom';
-import { useEffect } from "react";
+import { match, __ , not} from 'ts-pattern'
 
 export const Home = () => {
-    //https://cdn.sanity.io/images/lnkrniw1/production/7fd37d7c1ec0fd60544a111e5cc6b22487c2c355-639x579.png
-    const location = useLocation()
 
     const { isLoading, error, data } = useGetHomePageQuery()
 
-    const imageURL = data ? imageUrlFor(data?.homePageImage).width(350).url() : ""
-    const homepageImage = <img src={imageURL} alt="homepage-image" id="homepage-image"/>
+    const imageURL = match(data)
+        .with(not(__.nullish), (data) => imageUrlFor(data.homePageImage).width(350).url())
+        .with(__.nullish, () => "loading...")
+        .run()
+
+    const homepageImage = match(isLoading)
+        .with(true, () => <div className="loading-image">Loading...</div>)
+        .with(false, () => <img src={imageURL} alt="homepage-image" id="homepage-image"/>)
+        .run()
 
     return (
         <div id="homepage-container">
             <div className="img-spacer"></div>
-            {imageURL ? homepageImage : null}
+                {homepageImage}
             <div className="img-spacer"></div>
         </div>
     )

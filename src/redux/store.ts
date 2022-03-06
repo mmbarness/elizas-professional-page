@@ -1,12 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import homeSlice from '../features/01-home/homeSlice';
 import { sanityApi } from '../features/shared/sanityAPI';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
-import commonReducer from '../features/shared/commonReducer';
 
 export const configuredStore = () => configureStore({
   reducer: {
-    common: commonReducer,
     [sanityApi.reducerPath]: sanityApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

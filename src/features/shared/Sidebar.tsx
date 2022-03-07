@@ -32,14 +32,14 @@ export const Sidebar = () => {
     }
 
     const links = [
-        <Link to= '/' id="homepage-link" className = "homepage-links">home</Link>,
-        <Link to= '/diary' id="diary-link" className = "homepage-links">diary / archive</Link>,
-        <Link to= '/hobby-death' id="hd-link" className = "homepage-links">Hobby Death</Link>,
-        <Link to= '/my-favorite-monument' id="mfm-link" className = "homepage-links">My Favorite Monument</Link>,
-        <Link to= '/self-maintaining' id="sm-link" className = "homepage-links">Self Maintaining</Link>,
-        <Link to= '/sincerely-yours' id="sy-link" className = "homepage-links">Sincerely, Yours</Link>,
-        <Link to= '/music-videos' id="mv-link" className = "homepage-links">music videos</Link>,
-        <Link to= '/my-husband' id="mh-link" className = "homepage-links">My Husband</Link>,
+        <Link to= '/' id="homepage-link" className = "homepage-links complete-page">home</Link>,
+        <Link to= '/diary' id="diary-link" className = "homepage-links incomplete-page">diary / archive</Link>,
+        <Link to= '/hobby-death' id="hd-link" className = "homepage-links incomplete-page">Hobby Death</Link>,
+        <Link to= '/my-favorite-monument' id="mfm-link" className = "homepage-links incomplete-page">My Favorite Monument</Link>,
+        <Link to= '/self-maintaining' id="sm-link" className = "homepage-links incomplete-page">Self Maintaining</Link>,
+        <Link to= '/sincerely-yours' id="sy-link" className = "homepage-links incomplete-page">Sincerely, Yours</Link>,
+        <Link to= '/music-videos' id="mv-link" className = "homepage-links complete-page">music videos</Link>,
+        <Link to= '/my-husband' id="mh-link" className = "homepage-links complete-page">My Husband</Link>,
     ]
 
     useEffect(() => {

@@ -4,11 +4,12 @@
         width: 98vw;
         display: grid; 
         grid-template-columns: 5% 90% 5%;
-        grid-template-rows: 5% 90% 5%;
+        grid-template-rows: 5% 80% 10% 5%;
         grid-template-areas: 
             ". . ."
             ". video ."
-            ". description .";
+            ". description ."
+            ". . .";
         .hobby-death-video{
             grid-area: video;
             justify-self: center;

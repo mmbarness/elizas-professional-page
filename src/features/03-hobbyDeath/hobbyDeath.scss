@@ -1,0 +1,24 @@
+@mixin hobbyDeath { 
+    #hobby-death-container {
+        height: 90vh;
+        width: 98vw;
+        display: grid; 
+        grid-template-columns: 5% 90% 5%;
+        grid-template-rows: 5% 80% 10% 5%;
+        grid-template-areas: 
+            ". . ."
+            ". video ."
+            ". description ."
+            ". . .";
+        .hobby-death-video{
+            grid-area: video;
+            justify-self: center;
+            z-index: 0;
+        }
+        .hobby-death-description{
+            grid-area: description;
+            justify-self: center;
+            z-index: 0;
+        }
+    }
+}

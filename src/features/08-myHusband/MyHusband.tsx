@@ -22,7 +22,7 @@ export const MyHusband = () => {
                     url={videoObj.video}
                     width="90%"
                     height= "90%"
-                    light={true}
+                    light={false}
                     controls={true}
                     className="my-husband-video react-player"
                 />

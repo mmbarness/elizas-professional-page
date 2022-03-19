@@ -4,7 +4,7 @@ export interface MyHusband extends CoreResponse {
     orderRank: string,
     titleOfWork: string,
     titleToDisplay: string,
-    type: "link" |"video",
+    type: "link" |"video" | "text",
     video?: string
     Link?: string
 }

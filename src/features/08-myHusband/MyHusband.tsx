@@ -7,6 +7,8 @@ export const MyHusband = () => {
 
     const { isLoading, error, data } = useGetMyHusbandQuery()
 
+    console.log(error)
+
     const renderLink = (linkObj: MyHusbandObjType) => {
         return (
             <div className="link-container">
@@ -30,13 +32,16 @@ export const MyHusband = () => {
         </div>
     )
 
+    console.log(data)
+
     const renderOnLoad = () => (
         data?.map((obj:MyHusbandObjType) => (renderIndex[obj.type](obj))
     ))
 
-    const renderIndex: {"link": Function, "video": Function} = { 
+    const renderIndex: {"link": Function, "video": Function, "text": Function} = { 
         "link": renderLink,
-        "video": renderVideo
+        "video": renderVideo,
+        "text": () => <div></div>
     }
 
     return (

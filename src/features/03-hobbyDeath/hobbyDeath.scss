@@ -12,13 +12,14 @@
             ". . .";
         .hobby-death-video{
             grid-area: video;
-            justify-self: center;
+            justify-self: flex-start;
             z-index: 0;
         }
         .hobby-death-description{
             grid-area: description;
-            justify-self: center;
+            justify-self: flex-start;
             z-index: 0;
+            width: 50vw;
         }
     }
 }

@@ -7,6 +7,7 @@ export interface MyHusband extends CoreResponse {
     type: "link" |"video" | "text",
     video?: string
     Link?: string
+    text?: any
 }
 
 export interface MyHusbandQuery extends Query {

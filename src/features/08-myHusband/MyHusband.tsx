@@ -1,3 +1,4 @@
+import { PortableText } from "@portabletext/react"
 import {Suspense, useCallback, useState, useEffect} from "react"
 import ReactPlayer from "react-player/lazy"
 import { useGetMyHusbandQuery } from "../shared/sanityAPI"
@@ -6,8 +7,6 @@ import { MyHusband as MyHusbandObjType } from "./types"
 export const MyHusband = () => {
 
     const { isLoading, error, data } = useGetMyHusbandQuery()
-
-    console.log(error)
 
     const renderLink = (linkObj: MyHusbandObjType) => {
         return (
@@ -32,8 +31,6 @@ export const MyHusband = () => {
         </div>
     )
 
-    console.log(data)
-
     const renderOnLoad = () => (
         data?.map((obj:MyHusbandObjType) => (renderIndex[obj.type](obj))
     ))
@@ -41,7 +38,7 @@ export const MyHusband = () => {
     const renderIndex: {"link": Function, "video": Function, "text": Function} = { 
         "link": renderLink,
         "video": renderVideo,
-        "text": () => <div></div>
+        "text": (obj: any) => <PortableText value={obj.text}/>
     }
 
     return (

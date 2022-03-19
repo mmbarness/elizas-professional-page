@@ -32,12 +32,11 @@ export const Sidebar = () => {
     }
 
     const links = [
-        <Link to= '/' id="homepage-link" className = "homepage-links complete-page">home</Link>,
-        <Link to= '/diary' id="diary-link" className = "homepage-links incomplete-page">diary / archive</Link>,
+        // <Link to= '/diary' id="diary-link" className = "homepage-links incomplete-page">diary / archive</Link>,
         <Link to= '/hobby-death' id="hd-link" className = "homepage-links complete-page">Hobby Death</Link>,
-        <Link to= '/my-favorite-monument' id="mfm-link" className = "homepage-links incomplete-page">My Favorite Monument</Link>,
-        <Link to= '/self-maintaining' id="sm-link" className = "homepage-links incomplete-page">Self Maintaining</Link>,
-        <Link to= '/sincerely-yours' id="sy-link" className = "homepage-links incomplete-page">Sincerely, Yours</Link>,
+        // <Link to= '/my-favorite-monument' id="mfm-link" className = "homepage-links incomplete-page">My Favorite Monument</Link>,
+        // <Link to= '/self-maintaining' id="sm-link" className = "homepage-links incomplete-page">Self Maintaining</Link>,
+        // <Link to= '/sincerely-yours' id="sy-link" className = "homepage-links incomplete-page">Sincerely, Yours</Link>,
         <Link to= '/music-videos' id="mv-link" className = "homepage-links complete-page">music videos</Link>,
         <Link to= '/my-husband' id="mh-link" className = "homepage-links complete-page">My Husband</Link>,
     ]
@@ -58,7 +57,7 @@ export const Sidebar = () => {
     return (
         <div id="sidebar-container">
             <div id="sidebar-links">
-                Eliza Lu Doyle
+                <Link to= '/' id="homepage-link" className = "homepage-links complete-page">Eliza Lu Doyle</Link>
                 {links.map((link, index) => <p className="sidebar-link-container" key={index}>{link}</p>)}
                 <p id="cv-link-container" className="sidebar-link-container">
                     <Link to= '/cv' id="cv-link" className = "homepage-links">CV</Link>

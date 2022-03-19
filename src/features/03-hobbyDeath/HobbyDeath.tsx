@@ -1,20 +1,23 @@
-import {Suspense, useCallback, useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 import ReactPlayer from "react-player/lazy"
 import { useGetHobbyDeathQuery } from "../shared/sanityAPI"
-import {match, __, not} from 'ts-pattern'
+import { match, __ , not} from 'ts-pattern'
 import { hobbyDeathPatterns } from "./patterns"
 import { HobbyDeath as HobbyDeathReq } from "./types"
+import { PortableText } from "@portabletext/react"
 
 export const HobbyDeath = () => {
 
-    const { isLoading, error, data } = useGetHobbyDeathQuery()
+    const { data } = useGetHobbyDeathQuery()
     const [videoLink, setVideoLink] = useState("")
-    const [videoDescription, setVideoDescription] = useState("")
+    const [videoDescription, setVideoDescription] = useState<any>([""])
+
+    console.log({videoDescription})
 
     useEffect(() => {
         match(data)
             .with({
-                hobbyDeathDescription: [__.string],
+                hobbyDeathDescription: [not(__.nullish)],
                 hobbyDeathVideo: __.string,
                 slug: {_type: 'slug', current: 'hobby-death'},
                 title: "Hobby Death",
@@ -25,7 +28,7 @@ export const HobbyDeath = () => {
                 _updatedAt: __.string
             }, (data: HobbyDeathReq) => {
                 setVideoLink(data.hobbyDeathVideo)
-                setVideoDescription(data.hobbyDeathDescription[0])
+                setVideoDescription(data.hobbyDeathDescription)
             })
             .with(__.nullish, () => {})
             .run()
@@ -40,7 +43,11 @@ export const HobbyDeath = () => {
                 controls={true}
                 className="hobby-death-video"
             />
-            <p className="hobby-death-description">{videoDescription}</p>
+            <div className="hobby-death-description">
+                <PortableText
+                    value={videoDescription}
+                />
+            </div>
         </div>
     )
 }

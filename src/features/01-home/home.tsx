@@ -7,7 +7,7 @@ export const Home = () => {
     const { isLoading, error, data } = useGetHomePageQuery()
 
     const imageURL = match(data)
-        .with(not(__.nullish), (data) => imageUrlFor(data.homePageImage).width(350).url())
+        .with(not(__.nullish), (data) => imageUrlFor(data.homePageImage).width(500).url())
         .with(__.nullish, () => "loading...")
         .run()
 
@@ -18,9 +18,9 @@ export const Home = () => {
 
     return (
         <div id="homepage-container">
-            <div className="img-spacer"></div>
+            <div id="img-spacer-1"></div>
                 {homepageImage}
-            <div className="img-spacer"></div>
+            <div id="img-spacer-2"></div>
         </div>
     )
 }

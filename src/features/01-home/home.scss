@@ -1,12 +1,22 @@
 @mixin homePage {
     #homepage-container {
         height: 90vh;
+        width: 98vw;
         display: grid; 
         grid-template-columns: 10% 20% 70%;
-        grid-template-rows: 40% 20% 10%;
-        > img {
-            grid-row-start: 2;
-            grid-column-start: 3;
+        grid-template-rows: 40% 20% 40%;
+        grid-template-areas: 
+            ". . img-spacer-1"
+            ". . img-spacer-2"
+            ". . video";
+        img { 
+            grid-area: video;
+        }
+        #img-spacer-1{
+            grid-area: img-spacer-1;
+        }
+        #img-spacer-2{
+            grid-area: img-spacer-2;
         }
     }
 }

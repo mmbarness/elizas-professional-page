@@ -1,10 +1,13 @@
 @mixin Sidebar {
+    #sidebar-links {
+        display: flex;
+        flex-flow: column;
+    }
     #homepage-link{
         margin-bottom: 3rem;
     }
     .sidebar-link-container{
         margin-top: .5rem;
-        margin-bottom: .5rem;
     }
     #cv-link-container{
         margin-top: 3rem;

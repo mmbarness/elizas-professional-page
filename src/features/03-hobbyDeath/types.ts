@@ -1,8 +1,9 @@
-import { Query, CoreResponse } from "../shared/basicSanityTypes"
+import { Query, CoreResponse, SanityImage } from "../shared/basicSanityTypes"
 
 export interface HobbyDeath extends CoreResponse {
-    hobbyDeathDescription: Array<string>,
     hobbyDeathVideo: string,
+    hobbyDeathDescription: Array<string>,
+    hobbyDeathImages: Array<SanityImage>,
     slug: {
         _type: 'slug', current: string
     },

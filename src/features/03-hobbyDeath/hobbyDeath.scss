@@ -3,12 +3,13 @@
         height: 90vh;
         width: 98vw;
         display: grid; 
-        grid-template-columns: 5% 90% 5%;
-        grid-template-rows: 5% 80% 10% 5%;
+        grid-template-columns: auto;
+        grid-template-rows: 5% 60% auto auto 5%;
         grid-template-areas: 
             ". . ."
             ". video ."
             ". description ."
+            ". images ."
             ". . .";
         .hobby-death-video{
             grid-area: video;
@@ -20,6 +21,17 @@
             justify-self: flex-start;
             z-index: 0;
             width: 50vw;
+        }
+        #hobby-death-images {
+            grid-area: images;
+            justify-self: flex-start;
+            z-index: 0;
+            width: 55vw;
+            display: grid; 
+            img { 
+                width: 100%; 
+                margin: .5rem 0rem .5rem 0rem;
+            }
         }
     }
 }

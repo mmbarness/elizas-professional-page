@@ -3,7 +3,17 @@ import { Query, CoreResponse, SanityImage } from "../shared/basicSanityTypes"
 export interface HobbyDeath extends CoreResponse {
     hobbyDeathVideo: string,
     hobbyDeathDescription: Array<string>,
-    hobbyDeathImages: Array<SanityImage>,
+    hobbyDeathImages: [
+        {
+            _key:string,
+            _type:"hobbyDeathImage",
+            asset:{
+                _ref: string,
+                _type:string
+            },
+            caption: string | "",
+        }
+    ],
     slug: {
         _type: 'slug', current: string
     },

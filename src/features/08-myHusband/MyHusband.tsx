@@ -8,8 +8,6 @@ export const MyHusband = () => {
 
     const { isLoading, error, data } = useGetMyHusbandQuery()
 
-    console.log(data)
-
     const renderLink = (linkObj: MyHusbandObjType) => {
         return (
             <div className="link-container">

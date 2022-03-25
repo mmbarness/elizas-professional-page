@@ -1,5 +1,5 @@
 import { PortableText } from "@portabletext/react"
-import {Suspense, useCallback, useState, useEffect} from "react"
+import { Suspense } from "react"
 import ReactPlayer from "react-player/lazy"
 import { useGetMyHusbandQuery } from "../shared/sanityAPI"
 import { MyHusband as MyHusbandObjType } from "./types" 
@@ -17,17 +17,20 @@ export const MyHusband = () => {
     }
 
     const renderVideo = (videoObj: MyHusbandObjType) => (
-        <div className="player-wrapper">
-            <Suspense fallback={<div></div>}>
-                <ReactPlayer
-                    url={videoObj.video}
-                    width="90%"
-                    height= "90%"
-                    light={false}
-                    controls={true}
-                    className="my-husband-video react-player"
-                />
-            </Suspense>
+        <div className="video-container">
+            <div className="player-wrapper">
+                <Suspense fallback={<div></div>}>
+                    <ReactPlayer
+                        url={videoObj.video}
+                        width="90%"
+                        height= "90%"
+                        light={false}
+                        controls={true}
+                        className="my-husband-video react-player"
+                    />
+                </Suspense>
+            </div>
+            {videoObj.text ? <div className="video-caption"><PortableText value={videoObj.text} /></div> : null}
         </div>
     )
 

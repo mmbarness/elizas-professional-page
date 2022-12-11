@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.scss';
-import { Home } from './features/01-home/home';
-import { RoutesObj } from './routes';
+import { RoutesObj as Routes } from './routes';
 import { Sidebar } from './features/shared/Sidebar';
-import { useGetSlugsQuery } from './features/shared/sanityAPI';
 
 function App() {
 
@@ -11,7 +9,7 @@ function App() {
     <div className="App">
       <Sidebar/>      
       <div id="pages">
-        {RoutesObj()}
+        {Routes()}
       </div>
     </div>
   );

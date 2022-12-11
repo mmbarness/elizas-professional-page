@@ -5,7 +5,7 @@
 .App {
   @include Pages; 
   display: grid;
-  grid-template-columns: 10vw 88vw;
+  grid-template-columns: 15vw auto;
 }
 
 #sidebar-container{

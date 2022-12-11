@@ -1,7 +1,6 @@
 @mixin MyHusband {
     #my-husband-container { 
         padding-top: .5rem;
-        padding-left: 10rem;
         padding-bottom: 2.5rem;
         width: 60vw;
         justify-self: center;
@@ -17,9 +16,6 @@
             position: absolute;
             top: 22px;
             left: 0;
-        }
-        .video-caption{
-            
         }
         .link-container{
             font-size: 1.5rem;

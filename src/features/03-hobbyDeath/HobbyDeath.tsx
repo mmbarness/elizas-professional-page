@@ -99,14 +99,22 @@ export const HobbyDeath = () => {
     
     return (
         <div id="hobby-death-container">
-            <ReactPlayer
-                url={videoLink}
-                width="90%"
-                height= "100%"
-
-                controls={true}
-                className="hobby-death-video"
-            />
+            <div id="hobby-death-video-container">
+                <ReactPlayer
+                    url={videoLink}
+                    // height="15vh"
+                    // width="auto"
+                    width="100%"
+                    height= "100%"
+                    style={{
+                        justifyContent: "left",
+                        width:"100%",
+                        height: "100%"
+                    }}
+                    controls={true}
+                    className="hobby-death-video"
+                />
+            </div>
             <div className="hobby-death-description">
                 <PortableText
                     value={videoDescription}

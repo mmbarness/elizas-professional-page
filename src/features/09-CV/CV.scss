@@ -10,7 +10,9 @@
             "bottom-left bottom-right";
         .cv-pdf{
             grid-area: resume;
-            z-index:0
+            z-index:0;
+            height: 100%;
+            width: auto;
         }
         #resume-pg-nav{
             z-index: 2;

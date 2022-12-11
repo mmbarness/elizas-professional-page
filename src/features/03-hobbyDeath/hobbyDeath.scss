@@ -1,20 +1,22 @@
 @mixin hobbyDeath { 
     #hobby-death-container {
-        height: 90vh;
-        width: 98vw;
+        height: 100vh;
         display: grid; 
         grid-template-columns: auto;
-        grid-template-rows: 5% 60% auto auto 5%;
+        grid-template-rows: 60% auto auto;
         grid-template-areas: 
-            ". . ."
-            ". video ."
-            ". description ."
-            ". images ."
-            ". . .";
-        .hobby-death-video{
+            "video"
+            "description"
+            "images";
+        #hobby-death-video-container{
             grid-area: video;
-            justify-self: flex-start;
-            z-index: 0;
+            position: relative;
+            padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+            .hobby-death-video {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
         }
         .hobby-death-description{
             grid-area: description;

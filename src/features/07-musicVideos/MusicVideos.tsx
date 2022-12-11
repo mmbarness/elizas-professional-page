@@ -11,13 +11,15 @@ export const MusicVideos = () => {
             if (data) {
                 return data.map((video, i) => (
                     <Suspense fallback={<div></div>}>
-                        <ReactPlayer
-                            url={video.link}
-                            width="90%"
-                            height= "100%"
-                            controls={true}
-                            className={`${i % 2 === 0 ? "left music-video" : "right music-video"}`}
-                        />
+                        <div className="player-wrapper">
+                            <ReactPlayer
+                                url={video.link}
+                                width="100%"
+                                height= "100%"
+                                controls={true}
+                                className={`${i % 2 === 0 ? "left music-video" : "right music-video"}`}
+                            />
+                        </div>
                     </Suspense>
                 ))
             }

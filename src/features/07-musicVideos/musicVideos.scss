@@ -13,17 +13,13 @@
             padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
         }
         .music-video{
-            object-fit: cover;
-            object-position: center;
-            // border-radius: 5px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-            justify-self: center;
-            align-self: center;
-            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
         .left {
             grid-area: auto / col1-start / auto / span 1;;
-            // margin-right: 1rem;
         }
         .right{
             grid-area: auto / col2-start / auto / span 2;

@@ -1,14 +1,16 @@
 import { PortableText } from "@portabletext/react";
 import { useGetInfoQuery } from "../shared/sanityAPI"
+import useMediaQuery from "../../utils/useMediaQuery";
 
 export const Info = () => {
 
     const { isLoading, data } = useGetInfoQuery();
-    console.log({data})
+
+    const orientation = useMediaQuery("(orientation: landscape)") ? "landscape" : "portrait";
     
     return data ? 
     (
-        <div id="info-page">
+        <div id="info-page" className={orientation}>
             <PortableText
                 value={data}
             />

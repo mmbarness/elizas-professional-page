@@ -2,7 +2,6 @@
     #info-page {
         display: flex;
         flex-flow: column;
-        width: 45vw; 
         p {
             display: block;
             margin-block-start: 1em;
@@ -13,5 +12,13 @@
         em {
             font-style: italic;
         }
+    }
+
+    #info-page.landscape {
+        width: 45vw;
+    }
+
+    #info-page.portrait {
+        width: 70vw;
     }
 }

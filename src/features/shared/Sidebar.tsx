@@ -2,6 +2,7 @@ import {  useGetHomePageQuery, useGetImageUrlQuery, useGetWorkPDFQuery } from ".
 import {Link} from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
 import { useEffect } from "react";
+import useMediaQuery from "../../utils/useMediaQuery";
 
 export const Sidebar = () => {
 
@@ -20,6 +21,8 @@ export const Sidebar = () => {
     };
 
     const { isLoading, error, data } = useGetWorkPDFQuery();
+
+    const orientation = useMediaQuery("(orientation: landscape)") ? "landscape" : "portrait";
 
     const links = [
         // <Link to= '/diary' id="diary-link" className = "homepage-links incomplete-page">diary / archive</Link>,
@@ -42,7 +45,7 @@ export const Sidebar = () => {
     },[location])
 
     return (
-        <div id="sidebar-container">
+        <div id="sidebar-container" className={orientation}>
             <div id="sidebar-links">
                 <Link to= '/' id="homepage-link" className = "sidebar-link-container">Eliza Lu Doyle</Link>
                 {links.map((link, index) => <p className="sidebar-link-container" key={index}>{link}</p>)}

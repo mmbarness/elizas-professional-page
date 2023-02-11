@@ -7,7 +7,7 @@
   @include Pages; 
   @include Reset;
   display: grid;
-  grid-template-columns: 15vw auto;
+  grid-template-columns: auto auto;
 }
 
 #sidebar-container{

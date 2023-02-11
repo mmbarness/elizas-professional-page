@@ -3,16 +3,16 @@
         display: flex;
         flex-flow: column;
     }
-    #homepage-link{
-        margin-bottom: 3rem;
-    }
     .sidebar-link-container{
         margin-top: .5rem;
     }
     #cv-link-container{
         margin-top: 3rem;
     }
-    .incomplete-page{
-        display:none;
+    #sidebar-container.portrait {
+        width: 20vw;
+    }
+    #sidebar-container.landscape {
+        width: 15vw;
     }
 }

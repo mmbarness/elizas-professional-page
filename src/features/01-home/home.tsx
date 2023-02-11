@@ -1,26 +1,47 @@
-import {  imageUrlFor, useGetHomePageQuery } from "../shared/sanityAPI"
-import { useLocation } from 'react-router-dom';
-import { match, __ , not} from 'ts-pattern'
+import dayjs from 'dayjs'
+import { useGetDiaryEntriesQuery } from "../shared/sanityAPI"
+import {PortableText} from '@portabletext/react'
+import { RenderImage } from "../shared/components/renderImage"
+import { DiaryEntry } from '../02-diary/types'
 
+const customParseFormat = require('dayjs/plugin/customParseFormat')
+dayjs.extend(customParseFormat)
 export const Home = () => {
 
-    const { isLoading, error, data } = useGetHomePageQuery()
+    const { isLoading, error, data } = useGetDiaryEntriesQuery()
 
-    const imageURL = match(data)
-        .with(not(__.nullish), (data) => imageUrlFor(data.homePageImage).width(500).url())
-        .with(__.nullish, () => "loading...")
-        .run()
+    const components = {
+        types: {
+            image: RenderImage
+        }
+    }
 
-    const homepageImage = match(isLoading)
-        .with(true, () => <div className="loading-image">Loading...</div>)
-        .with(false, () => <img src={imageURL} alt="homepage-image" id="homepage-image"/>)
-        .run()
+    const renderEntry = (entry: DiaryEntry) => {
+
+        const blockContent = entry.text
+        const postedDate = dayjs(entry._createdAt, "YYYY-MM-DDTHH:mm:ssZ").format("MMMM D YYYY").toLocaleLowerCase()
+
+        const {title} = entry
+
+        return (
+            <div className="diary-entry">
+                <h3 className="diary-entry-title">{title}</h3>
+                <PortableText
+                    value={blockContent}
+                    components= {components}
+                />
+                <p className="diary-entry-date">{postedDate}</p>
+            </div>
+        )
+    }
+
+    const renderEntries = () => (
+        data ? data.map(entry => renderEntry(entry)) : null
+    )
 
     return (
-        <div id="homepage-container">
-            <div id="img-spacer-1"></div>
-                {homepageImage}
-            <div id="img-spacer-2"></div>
+        <div id="diary-container">
+            {renderEntries()}
         </div>
     )
 }

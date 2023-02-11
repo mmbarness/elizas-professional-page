@@ -1,11 +1,20 @@
 @use './features/01-home/home' as *;
 @use './features/shared/text/text' as *;
 @use './features/shared/pages' as *;
+@use './reset.scss' as *;
 
 .App {
   @include Pages; 
+  @include Reset;
   display: grid;
-  grid-template-columns: 15vw auto;
+}
+
+.App.landscape{
+    grid-template-columns: 15vw auto;
+}
+
+.App.portrait{
+    grid-template-columns: 20vw auto;
 }
 
 #sidebar-container{

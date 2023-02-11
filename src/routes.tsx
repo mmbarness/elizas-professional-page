@@ -3,7 +3,7 @@ import { Home } from './features/01-home/home'
 import { Diary } from './features/02-diary/Diary'
 import { CV } from './features/09-CV/CV'
 import { Work } from './features/work/work'
-import { Info } from './features/info/info'
+import { Info } from './features/03-info/info'
 
 export const RoutesObj = () => useRoutes([
     {path: '/', element: <Home/>},

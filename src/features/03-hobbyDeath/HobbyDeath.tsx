@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import ReactPlayer from "react-player/lazy"
 import { useGetHobbyDeathQuery } from "../shared/sanityAPI"
-import { match, __ , not} from 'ts-pattern'
+import { match, P,} from 'ts-pattern'
 import { hobbyDeathPatterns } from "./patterns"
 import { HobbyDeath as hobbyDeathRequest} from "./types"
 import { PortableText } from "@portabletext/react"
@@ -41,26 +41,26 @@ export const HobbyDeath = () => {
     useEffect(() => {
         match(data)
             .with({
-                hobbyDeathDescription: [not(__.nullish)],
-                hobbyDeathVideo: __.string,
+                hobbyDeathDescription: [P.not(P.nullish)],
+                hobbyDeathVideo: P.string,
                 hobbyDeathImages: [
                     {
-                        _key: __.string, 
-                        _type: __.string,
+                        _key: P.string, 
+                        _type: P.string,
                         asset: {
-                            _ref: __.string,
-                            _type: __.string
+                            _ref: P.string,
+                            _type: P.string
                         },
-                        caption: __.string || __.nullish
+                        caption: P.string || P.nullish
                     }
                 ],
                 slug: {_type: 'slug', current: 'hobby-death'},
                 title: "Hobby Death",
-                _createdAt: __.string,
+                _createdAt: P.string,
                 _id: "hobbyDeath",
-                _rev: __.string,
+                _rev: P.string,
                 _type: "hobbyDeath",
-                _updatedAt: __.string
+                _updatedAt: P.string
             }, (data: hobbyDeathRequest) => {
                 setVideoLink(data.hobbyDeathVideo)
                 setVideoDescription(data.hobbyDeathDescription)
@@ -68,32 +68,32 @@ export const HobbyDeath = () => {
 
             })
             .with({
-                hobbyDeathDescription: [not(__.nullish)],
-                hobbyDeathVideo: __.string,
+                hobbyDeathDescription: [P.not(P.nullish)],
+                hobbyDeathVideo: P.string,
                 hobbyDeathImages: [
                     {
-                        _key: __.string, 
-                        _type: __.string,
+                        _key: P.string, 
+                        _type: P.string,
                         asset: {
-                            _ref: __.string,
-                            _type: __.string
+                            _ref: P.string,
+                            _type: P.string
                         },
                     }
                 ],
                 slug: {_type: 'slug', current: 'hobby-death'},
                 title: "Hobby Death",
-                _createdAt: __.string,
+                _createdAt: P.string,
                 _id: "hobbyDeath",
-                _rev: __.string,
+                _rev: P.string,
                 _type: "hobbyDeath",
-                _updatedAt: __.string
+                _updatedAt: P.string
             }, (data: hobbyDeathRequest) => {
                 setVideoLink(data.hobbyDeathVideo)
                 setVideoDescription(data.hobbyDeathDescription)
                 sethobbydeathImages(transformImages(data.hobbyDeathImages))
 
             })
-            .with(__.nullish, () => {})
+            .with(P.nullish, () => {})
             .run()
     },[data])
     

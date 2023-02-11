@@ -35,3 +35,4 @@ export interface SincerelyYours extends CoreResponse {
 export interface SincerelyYoursQuery extends Query {
     result: Array<SincerelyYours>
 }
+

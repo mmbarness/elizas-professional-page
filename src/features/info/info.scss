@@ -1,0 +1,7 @@
+@mixin Info {
+    #info-page {
+        display: flex;
+        flex-flow: column;
+        width: 50vw; 
+    }
+}

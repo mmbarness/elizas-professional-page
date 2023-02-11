@@ -1,15 +1,15 @@
-import {match, __} from 'ts-pattern'
+import {match, P} from 'ts-pattern'
 
 export const hobbyDeathPatterns = {
     'successPattern': {
-        hobbyDeathDescription: [__.string],
-        hobbyDeathVideo: __.string,
+        hobbyDeathDescription: [P.string],
+        hobbyDeathVideo: P.string,
         slug: {_type: 'slug', current: 'hobby-death'},
         title: "Hobby Death",
-        _createdAt: __.string,
+        _createdAt: P.string,
         _id: "hobbyDeath",
         _rev: "D0BPLNkr4jQkYfe4H2gD1C",
         _type: "hobbyDeath",
-        _updatedAt: __.string
+        _updatedAt: P.string
     }
 }

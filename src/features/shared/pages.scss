@@ -5,6 +5,7 @@
 @use '../08-myHusband/myHusband' as *;
 @use '../09-CV/CV' as *;
 @use './sidebar.scss' as *;
+@use '../info/info' as *;
 
 @mixin Pages {
     @include homePage;
@@ -14,6 +15,7 @@
     @include MyHusband;
     @include CV;
     @include Sidebar;
+    @include Info;
     #pages {
         display: flex;
     }

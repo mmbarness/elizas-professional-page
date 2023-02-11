@@ -9,6 +9,10 @@ import { SincerelyYours, SincerelyYoursQuery } from '../06-sincerelyYours/types'
 import { MusicVideoQuery, MusicVideo } from '../07-musicVideos/types';
 import { MyHusband, MyHusbandQuery } from '../08-myHusband/types';
 import { SanityImage } from './basicSanityTypes';
+import { WorkPdfQuery } from '../work/types';
+import { WorkPDF } from '../../types/sanityTypes';
+import { Info, InfoQuery } from '../info/types';
+import { PortableTextBlockComponent } from '@portabletext/react';
 const sanityClient = require('@sanity/client')
 const baseURL = 'https://lnkrniw1.api.sanity.io/v2022-02-01/data/query/production';
 
@@ -76,6 +80,14 @@ export const sanityApi = createApi({
             query: () => `?query=*[_type == "sincerelyYours"]`,
             transformResponse: (response: SincerelyYoursQuery) => response.result[0]
         }),
+        getWorkPDF: builder.query<WorkPDF, void>({
+            query: () => `?query=*[_type == "workPDF"]{_id,"url": asset->url}`,
+            transformResponse: (response: WorkPdfQuery) => response.result[0]
+        }),
+        getInfo: builder.query<any[], void> ({
+            query: () => `?query=*[_type == "info"]`,
+            transformResponse: (response: InfoQuery) => response.result[0].info
+        })
     })
 })
 
@@ -91,6 +103,8 @@ export const {
     useGetSelfMaintainingQuery,
     useGetSincerelyYoursQuery,
     useGetSlugsQuery,
+    useGetWorkPDFQuery,
+    useGetInfoQuery,
 } = sanityApi 
 
 

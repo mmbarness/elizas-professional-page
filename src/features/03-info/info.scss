@@ -2,6 +2,16 @@
     #info-page {
         display: flex;
         flex-flow: column;
-        width: 50vw; 
+        width: 45vw; 
+        p {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+        em {
+            font-style: italic;
+        }
     }
 }

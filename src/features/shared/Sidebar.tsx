@@ -44,7 +44,7 @@ export const Sidebar = () => {
     return (
         <div id="sidebar-container">
             <div id="sidebar-links">
-                <Link to= '/' id="homepage-link" className = "homepage-links">Eliza Lu Doyle</Link>
+                <Link to= '/' id="homepage-link" className = "sidebar-link-container">Eliza Lu Doyle</Link>
                 {links.map((link, index) => <p className="sidebar-link-container" key={index}>{link}</p>)}
             </div>
         </div>

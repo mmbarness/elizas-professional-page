@@ -1,18 +1,12 @@
 @use '../01-home/home' as *;
 @use '../02-diary/diary' as *;
-@use '../03-hobbyDeath/hobbyDeath' as *;
-@use '../07-musicVideos/musicVideos.scss' as *;
-@use '../08-myHusband/myHusband' as *;
 @use '../09-CV/CV' as *;
 @use './sidebar.scss' as *;
-@use '../info/info' as *;
+@use '../03-info/info' as *;
 
 @mixin Pages {
     @include homePage;
     @include Diary;
-    @include hobbyDeath;
-    @include MusicVideos;
-    @include MyHusband;
     @include CV;
     @include Sidebar;
     @include Info;

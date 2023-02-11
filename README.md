@@ -1,1 +1,1 @@
-website for eliza. sanity/react/redux/typescript.
+website for eliza. sanity/react/reduxjs-toolkit/typescript.

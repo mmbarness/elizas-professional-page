@@ -7,7 +7,14 @@
   @include Pages; 
   @include Reset;
   display: grid;
-  grid-template-columns: auto auto;
+}
+
+.App.landscape{
+    grid-template-columns: 15vw auto;
+}
+
+.App.portrait{
+    grid-template-columns: 20vw auto;
 }
 
 #sidebar-container{

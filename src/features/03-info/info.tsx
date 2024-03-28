@@ -4,11 +4,11 @@ import useMediaQuery from "../../utils/useMediaQuery";
 
 export const Info = () => {
 
-    const { isLoading, data } = useGetInfoQuery();
+    const { data } = useGetInfoQuery();
 
     const orientation = useMediaQuery("(orientation: landscape)") ? "landscape" : "portrait";
-    
-    return data ? 
+
+    return data ?
     (
         <div id="info-page" className={orientation}>
             <PortableText

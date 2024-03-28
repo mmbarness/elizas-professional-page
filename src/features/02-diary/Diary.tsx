@@ -1,7 +1,6 @@
 import dayjs from 'dayjs'
 import { useGetDiaryEntriesQuery } from "../shared/sanityAPI"
-import {PortableText} from '@portabletext/react'
-import { BlockContent } from "../shared/basicSanityTypes"
+import { PortableText } from '@portabletext/react'
 import { RenderImage } from "../shared/components/renderImage"
 import { DiaryEntry } from "./types"
 
@@ -10,7 +9,7 @@ dayjs.extend(customParseFormat)
 
 export const Diary = () => {
 
-    const { isLoading, error, data } = useGetDiaryEntriesQuery()
+    const { data } = useGetDiaryEntriesQuery()
 
     const components = {
         types: {
@@ -19,10 +18,8 @@ export const Diary = () => {
     }
 
     const renderEntry = (entry: DiaryEntry) => {
-
         const blockContent = entry.text
         const postedDate = dayjs(entry._createdAt, "YYYY-MM-DDTHH:mm:ssZ").format("MMMM D YYYY").toLocaleLowerCase()
-
         const {title} = entry
 
         return (

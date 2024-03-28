@@ -1,6 +1,6 @@
 import '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
-import { homepageRequest } from '../types/sanityTypes';
+
 const sanityClient = require('@sanity/client')
 const today = new Date();
 const todaysUTCDate= `${today.getUTCFullYear()}-${today.getUTCMonth()}-${today.getUTCDate()}`

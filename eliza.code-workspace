@@ -6,6 +6,10 @@
 	],
 	"settings": {
 		"editor.detectIndentation": false,
-		"editor.tabSize": 4
+		"editor.tabSize": 4,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        }
 	}
 }

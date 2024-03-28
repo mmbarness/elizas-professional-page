@@ -1,10 +1,10 @@
 import { SanityImage } from "../basicSanityTypes"
 import { imageUrlFor } from "../sanityAPI"
-import {getImageDimensions} from '@sanity/asset-utils'
+import { getImageDimensions } from '@sanity/asset-utils'
 
 export const RenderImage = ({value, isInline}: {value: SanityImage, isInline: boolean}) => {
 
-    const {width, height} = getImageDimensions(value)
+    const { width } = getImageDimensions(value)
     const imageUrl = imageUrlFor(value).width(width).url()
 
     return (
@@ -15,7 +15,6 @@ export const RenderImage = ({value, isInline}: {value: SanityImage, isInline: bo
           style={{
             // Display alongside text if image appears inside a block text span
             display: isInline ? 'inline-block' : 'block',
-
           }}
         />
       )

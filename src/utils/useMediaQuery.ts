@@ -20,11 +20,10 @@ const useMediaQuery = (query:string) => {
         return () => {
             media.removeEventListener("change", listener );
         }
-        
-    }, [matches, query]);
-  
-    return matches;
 
+    }, [matches, query]);
+
+    return matches;
 }
 
 export default useMediaQuery;

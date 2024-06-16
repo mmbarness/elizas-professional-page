@@ -6,9 +6,10 @@ import { DiaryEntry } from '../02-diary/types'
 
 const customParseFormat = require('dayjs/plugin/customParseFormat')
 dayjs.extend(customParseFormat)
+
 export const Home = () => {
 
-    const { isLoading, error, data } = useGetDiaryEntriesQuery()
+    const { data } = useGetDiaryEntriesQuery()
 
     const components = {
         types: {
@@ -16,27 +17,21 @@ export const Home = () => {
         }
     }
 
-    const renderEntry = (entry: DiaryEntry) => {
-
+    const renderEntry = (entry: DiaryEntry, key: number) => {
         const blockContent = entry.text
-        const postedDate = dayjs(entry._createdAt, "YYYY-MM-DDTHH:mm:ssZ").format("MMMM D YYYY").toLocaleLowerCase()
-
-        const {title} = entry
-
         return (
-            <div className="diary-entry">
-                <h3 className="diary-entry-title">{title}</h3>
+            <div className="diary-entry" key={`diary-entry-${key}`}>
                 <PortableText
                     value={blockContent}
                     components= {components}
                 />
-                <p className="diary-entry-date">{postedDate}</p>
+                {/* <p className="diary-entry-date">{postedDate}</p> */}
             </div>
         )
     }
 
     const renderEntries = () => (
-        data ? data.map(entry => renderEntry(entry)) : null
+        data ? data.map((entry, i) => renderEntry(entry, i)) : null
     )
 
     return (

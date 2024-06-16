@@ -7,6 +7,7 @@ import { Info } from './features/03-info/info'
 
 export const RoutesObj = () => useRoutes([
     {path: '/', element: <Home/>},
+    {path: '/recently', element: <Home/>},
     {path: '/diary', element: <Diary/>},
     {path: '/cv', element: <CV/>},
     {path: '/work', element: <Work/>},

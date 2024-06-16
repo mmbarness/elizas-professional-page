@@ -5,6 +5,11 @@ import { BlockContent } from "../shared/basicSanityTypes"
 import { RenderImage } from "../shared/components/renderImage"
 import { DiaryEntry } from "./types"
 
+
+
+
+
+
 const customParseFormat = require('dayjs/plugin/customParseFormat')
 dayjs.extend(customParseFormat)
 
@@ -32,7 +37,7 @@ export const Diary = () => {
                     value={blockContent}
                     components= {components}
                 />
-                <p className="diary-entry-date">{postedDate}</p>
+                {/* <p className="diary-entry-date">{postedDate}</p> */}
             </div>
         )
     }

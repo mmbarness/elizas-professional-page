@@ -26,6 +26,7 @@ export const Sidebar = () => {
 
     const links = [
         // <Link to= '/diary' id="diary-link" className = "homepage-links incomplete-page">diary / archive</Link>,
+        <Link to= '/recently' id="recently-link" className = "recently-links">Recently</Link>,
         <Link to= '/info' id="info-link" className = "homepage-links">Info</Link>,
         <a href={data?.url} target="blank" id="work-pdf" className="homepage-links">Work</a>,
 
@@ -42,7 +43,7 @@ export const Sidebar = () => {
             })
         }
 
-    },[location])
+    },[linksObj, location])
 
     return (
         <div id="sidebar-container" className={orientation}>

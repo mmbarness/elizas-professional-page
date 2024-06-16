@@ -4,7 +4,7 @@
 @use './reset.scss' as *;
 
 .App {
-  @include Pages; 
+  @include Pages;
   @include Reset;
   display: grid;
 }
@@ -18,7 +18,7 @@
 }
 
 #sidebar-container{
-  
+
   #sidebar-links{
 
     .active-link{
@@ -29,10 +29,11 @@
 
 a {
   text-decoration: none;
-  color: inherit; 
-} 
+  color: inherit;
+}
 
 #root{
   color: rgba(0, 2, 109, 0.89);
-  font-family: 'Georgia';
+  font-family: Calibri,sans-serif;
+  font-size: small;
 }

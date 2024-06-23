@@ -9,3 +9,18 @@ export interface HomePage extends CoreResponse {
 export interface HomePageQuery extends Query {
     result: HomePage[]
 }
+
+export interface DiaryEntry extends CoreResponse {
+    orderRank: string;
+    title: string,
+    slug?: {
+        _type: string,
+        current: string,
+    },
+    text: Array<BlockContent>
+    _type: "diaryEntry"
+}
+
+export interface DiaryEntryQuery extends Query {
+    result: Array<DiaryEntry>
+}

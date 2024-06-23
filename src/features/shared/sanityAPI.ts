@@ -1,11 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import imageUrlBuilder from '@sanity/image-url';
-import { HomePage, HomePageQuery } from '../01-home/types';
-import { DiaryEntry, DiaryEntryQuery } from '../02-diary/types';
+import { DiaryEntry, DiaryEntryQuery, HomePage, HomePageQuery } from '../01-home/types';
 import { SanityImage } from './basicSanityTypes';
 import { WorkPdfQuery } from '../work/types';
 import { WorkPDF } from '../../types/sanityTypes';
-import { Info, InfoQuery } from '../03-info/types';
+import { InfoQuery } from '../03-info/types';
 const sanityClient = require('@sanity/client')
 const baseURL = 'https://lnkrniw1.api.sanity.io/v2022-02-01/data/query/production';
 
@@ -43,7 +42,7 @@ export const sanityApi = createApi({
         getResume: builder.query<{resumeURL: string}, void>({
             query: () => `?query=*[_type == 'resume'] {
                 "resumeURL": asset->url
-              }`, 
+              }`,
             transformResponse:(response: {'result': Array<{'resumeURL':string}>}) => response.result[0]
         }),
         getSlugs: builder.query<string[], void>({
@@ -68,7 +67,7 @@ export const {
     useGetSlugsQuery,
     useGetWorkPDFQuery,
     useGetInfoQuery,
-} = sanityApi 
+} = sanityApi
 
 
 
